@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 22px;
+    color: $text-colour;
+}
+
+body {
+    min-height: 100vh;
+    background-color: $bgcolour;
+    @include mq(768px) {
+        font-size: 36px;
+    }
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    
+}
