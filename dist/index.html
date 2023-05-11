@@ -18,16 +18,97 @@
          <a href="#p1msg" class="skip-link">Skip Scoreboard</a>
 
             <section id="scoreboard" class="scoreboard">
+                <h2 class="offscreen">Scoreboard</h2>
+                
+                <section id="all_time" class="scoreboard__section">
+                    <h3 class="offscreen">All Time Scoreboard</h3>
+                    
+                    <div class="scoreboard__header" aria-hidden="true">
+                        <p><abbr title="Player One">P1</abbr></p>
+                        <p>All Time</p>
+                        <p><abbr title="Computer">CP</abbr></p>
+                    </div>
+                 
+                    <div class="scoreboard__row" role="row">
+                       
+                        <div id="p1_all_time_score" class="scoreboard__score center" role="cell" aria-label="Player One All Time Wins" tabindex="0">
+                            0
+                        </div>
 
+                        <div id="cp_all_time_score" class="scoreboard__score center" role="cell" aria-label="Computer All Time Wins" tabindex="0">
+                            0
+                        </div>
+
+                    </div>
+
+                </section>
+                
+                <section id="session" class="scoreboard__section">  
+                    <h3 class="offscreen">Session Scoreboard</h3>
+                    
+                    <div class="scoreboard__header" aria-hidden="true">
+                        <p><abbr title="Player One">P1</abbr></p>
+                        <p>Session</p>
+                        <p><abbr title="Computer">CP</abbr></p>
+                    </div>
+                 
+                    <div class="scoreboard__row" role="row">
+                       
+                        <div id="p1_session_score" class="scoreboard__score center" role="cell" aria-label="Player One Session Wins" tabindex="0">
+                            0
+                        </div>
+
+                        <div id="cp_session_score" class="scoreboard__score center" role="cell" aria-label="Computer Session Wins" tabindex="0">
+                            0
+                        </div>
+
+                    </div>
+
+                </section>
             </section>
 
             <section id="playerboard" class="playerboard">
+                <h2 id="p1msg" class="center" aria-label="Player One Chooses" tabindex="0">Player One Chooses...</h2>
+                
+                <div id="gameboard" class="gameboard">
+
+                    <div id="rock" class="gameboard__square">
+                        <img src="img/rock.jpg" alt="Select rock" tabindex="0">
+                    </div>
+
+                    <div id="paper" class="gameboard__square">
+                        <img src="img/paper.jpg" alt="Select paper" tabindex="0">
+                    </div>
+
+                    <div id="Scissors" class="gameboard__square">
+                        <img src="img/Scissors.jpg" alt="Select Scissors" tabindex="0">
+                    </div>
+
+                </div>
 
             </section>
 
             <section id="computerboard" class="computerboard">
+                <h2 id="cpmsg" class="center" aria-label="Computer Chooses" tabindex="0">Computer Chooses...</h2>
+                
+                <div id="cp_gameboard" class="gameboard">
+
+                    <div id="cp_rock" class="gameboard__square">
+                        <img src="img/rock.jpg" alt="rock" tabindex="0">
+                    </div>
+
+                    <div id="cp_paper" class="gameboard__square">
+                        <img src="img/paper.jpg" alt="paper" tabindex="0">
+                    </div>
+
+                    <div id="cp_Scissors" class="gameboard__square">
+                        <img src="img/Scissors.jpg" alt="Scissors" tabindex="0">
+                    </div>
+
+                </div>
 
             </section>
+
     </main>
 
     <form action="">
