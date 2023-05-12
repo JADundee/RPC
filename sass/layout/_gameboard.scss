@@ -41,12 +41,12 @@
 
     .selected {
         margin: 0 auto;
-        transition: margin .5s linear;
+        transition: margin 0.5s linear;
     }
 
     .not-selected {
         visibility: hidden;
         width: 0;
-        transition: width .5s linear, visibility .5s linear;
+        transition: width 0.5s linear, visibility 0.5s linear;
     }
 }
