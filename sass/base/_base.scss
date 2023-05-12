@@ -37,7 +37,8 @@ h1 {
 h1:focus,
 h2:focus {
     outline: none;
-    text-decoration: underline;
+    text-decoration: underline rgba(251, 255, 0, 0.686);
+    text-shadow: 1px 5px 3px rgba(251, 255, 0, 0.686);
 }
 
 abbr {
