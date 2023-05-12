@@ -1,7 +1,7 @@
 .scoreboard {
     width: 100%;
     max-width: 500px;
-    margin:0 auto;
+    margin: 0 auto;
     @include flexCenter;
     flex-wrap: wrap;
     @include mq(800px) {
@@ -50,7 +50,7 @@
 
             .scoreboard__score:focus {
                 outline: none;
-                background-color:  $text-colour;
+                background-color: $text-colour;
                 color: $bgcolour;
             }
         }
