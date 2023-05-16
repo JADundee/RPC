@@ -37,3 +37,29 @@ const updateScoreboard = () => {
     cpSessionScore.textContent = Game.getCpSession();
     cpSessionScore.ariaLabel = `The computer has ${Game.getCpSession()} wins this session.`;
 }
+
+const listenForPlayerChoice = () => {
+    const p1Images = document.querySelectorAll(".playerBoard .gameboard__square img");
+    p1Images.forEach(img => {
+        img.addEventListener("click", (event) => {
+            if (Game.getActiveStatus()) return;
+            Game.startGame();
+            const playerChoice = event.target.parentElement.id;
+            updateP1Message(playerChoice);
+            p1Images.forEach(img => {
+                if (img === event.target) {
+                    img.parentElement.classList.add("selected");
+                } else {
+                    img.parentElement.classList.add("not-selected");
+                }
+            });
+            // animation
+        })
+    })
+}
+
+const updateP1Message = (choice) => {
+    let p1Message = document.getElementById("p1Message").textContent;
+    p1Message += ` ${choice[0].toUpperCase()}${choice.slice[1]}!`;
+    document.getElementById("p1Message").textContent = p1Message;
+}
