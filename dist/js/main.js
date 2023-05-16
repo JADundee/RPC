@@ -1,4 +1,4 @@
-import GameObj from "./Game";
+import GameObj from "./Game.js";
 const Game = new GameObj();
 
 const initApp = () => {
@@ -7,6 +7,7 @@ const initApp = () => {
     // update scoreboard
     updateScoreboard();
     // listen for player choice
+    listenForPlayerChoice();
     // listen for enter key
     // listen for play again choice
     // lock in gameboard height
@@ -39,7 +40,7 @@ const updateScoreboard = () => {
 }
 
 const listenForPlayerChoice = () => {
-    const p1Images = document.querySelectorAll(".playerBoard .gameboard__square img");
+    const p1Images = document.querySelectorAll(".playerBoard .gameBoard__square img");
     p1Images.forEach(img => {
         img.addEventListener("click", (event) => {
             if (Game.getActiveStatus()) return;
@@ -60,6 +61,6 @@ const listenForPlayerChoice = () => {
 
 const updateP1Message = (choice) => {
     let p1Message = document.getElementById("p1Message").textContent;
-    p1Message += ` ${choice[0].toUpperCase()}${choice.slice[1]}!`;
+    p1Message += ` ${choice[0].toUpperCase()}${choice.slice(1)}!`;
     document.getElementById("p1Message").textContent = p1Message;
 }
