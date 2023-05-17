@@ -9,7 +9,9 @@ const initApp = () => {
     // listen for player choice
     listenForPlayerChoice();
     // listen for enter key
+    listenForEnterKey();
     // listen for play again choice
+    listenForPlayAgain();
     // lock in gameboard height
     // set focus to start new game
 }
@@ -56,6 +58,21 @@ const listenForPlayerChoice = () => {
             });
             // animation
         })
+    })
+}
+
+const listenForEnterKey = () => {
+    window.addEventListener("keydown", (event) => {
+        if (event.code === "Enter" && event.target.tagName === "IMG") {
+            event.target.click();
+        }
+    });
+}
+
+const listenForPlayAgain = () => {
+    document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        resetBoard(); //TODO:
     })
 }
 
