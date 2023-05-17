@@ -80,7 +80,7 @@ const lockComputerGameBoardHeight = () => {
 
 const updateP1Message = (choice) => {
     let p1Message = document.getElementById("p1Message").textContent;
-    p1Message += ` ${choice[0].toUpperCase()}${choice.slice(1)}!`;
+    p1Message += ` ${properCase(choice)}!`;
     document.getElementById("p1Message").textContent = p1Message;
 }
 
@@ -92,8 +92,8 @@ const computerAnimationSequence = (playerChoice) => {
     setTimeout(() => countdownFade(), interval += 750);
     setTimeout(() => {
         deleteCountdown();
-       // finishGameFlow(playerChoice);
-    }, interval += 750);
+        finishGameFlow(playerChoice);
+    }, interval += 1000);
     setTimeout(() => askUserToPlayAgain(), interval += 1000);
 
 }
@@ -118,6 +118,63 @@ const deleteCountdown = () => {
     countdown.forEach(el => {
         el.remove();
     });
+}
+
+const finishGameFlow = (playerChoice) => {
+    const computerChoice = getComputerChoice();
+    const winner = determineWinner(playerChoice, computerChoice);
+    const actionMessage = buildActionMessage(
+        winner,
+        playerChoice,
+        computerChoice
+    );
+    displayActionMessage(actionMessage);
+    // Update aria result
+    // Update score state
+    // Update persisten data
+    // Update score board
+    // Update winner message
+    // Display computer choice
+}
+
+const getComputerChoice = () => {
+    const randomNumber = Math.floor(Math.random() * 3);
+    const rpsArray = ["rock", "paper", "scissors"];
+    return rpsArray[randomNumber];
+}
+
+const determineWinner = (playerChoice, computerChoice) => {
+    if (playerChoice === computerChoice) return "Tie Game.";
+    if (
+        playerChoice === "rock" && computerChoice === "paper" || 
+        playerChoice === "paper" && computerChoice === "scissors" || 
+        playerChoice === "scissors" && computerChoice === "rock"
+    ) return "Computer Wins!";
+    return "Player One Wins!;"
+}
+
+const buildActionMessage = (winner, playerChoice, computerChoice) => {
+    if (winner === "tie") return "Tie Game.";
+    if (winner === "computer") {
+        const action = getAction(computerChoice);
+        return `${properCase(computerChoice)} ${action} ${properCase(playerChoice)}.`;
+    } else {
+        const action = getAction(playerChoice);
+        return `${properCase(playerChoice)} ${action} ${properCase(computerChoice)}.`;
+    }
+}
+
+const getAction = (choice) => {
+    return choice === "rock" ? "smashes" : chocie === "paper" ? "covers" : "cuts";
+}
+
+const properCase = (string) => {
+    return `${string[0].toUpperCase()}${string.slice(1)}`;
+}
+
+const displayActionMessage = (actionMessage) => {
+    const cpMessage = document.getElementById("cpMessage");
+    cpMessage.textContent = actionMessage;
 }
 
 const askUserToPlayAgain = () => {
