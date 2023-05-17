@@ -165,7 +165,7 @@ const buildActionMessage = (winner, playerChoice, computerChoice) => {
 }
 
 const getAction = (choice) => {
-    return choice === "rock" ? "smashes" : chocie === "paper" ? "covers" : "cuts";
+    return choice === "rock" ? "smashes" : choice === "paper" ? "covers" : "cuts";
 }
 
 const properCase = (string) => {
