@@ -88,6 +88,14 @@ const computerAnimationSequence = (playerChoice) => {
     let interval = 1000;
     setTimeout(() => computerChoiceAnimation("cp_rock", 1), interval);
     setTimeout(() => computerChoiceAnimation("cp_paper", 2), interval += 500);
+    setTimeout(() => computerChoiceAnimation("cp_scissors", 3), interval += 500);
+    setTimeout(() => countdownFade(), interval += 750);
+    setTimeout(() => {
+        deleteCountdown();
+       // finishGameFlow(playerChoice);
+    }, interval += 750);
+    setTimeout(() => askUserToPlayAgain(), interval += 1000);
+
 }
 
 const computerChoiceAnimation = (elementId, number) => {
@@ -96,4 +104,24 @@ const computerChoiceAnimation = (elementId, number) => {
     const p =document.createElement("p");
     p.textContent = number;
     element.appendChild(p);
+}
+
+const countdownFade = () => {
+    const countdown = document.querySelectorAll(".computerBoard .gameBoard__square p");
+    countdown.forEach(el => {
+        el.className = "fadeOut";
+    });
+}
+
+const deleteCountdown = () => {
+    const countdown = document.querySelectorAll(".computerBoard .gameBoard__square p");
+    countdown.forEach(el => {
+        el.remove();
+    });
+}
+
+const askUserToPlayAgain = () => {
+    const playAgain = document.getElementById("playAgain");
+    playAgain.classList.toggle("hidden");
+    playAgain.focus();
 }
