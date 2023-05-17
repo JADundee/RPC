@@ -143,14 +143,14 @@ const getComputerChoice = () => {
     return rpsArray[randomNumber];
 }
 
-const determineWinner = (playerChoice, computerChoice) => {
-    if (playerChoice === computerChoice) return "tie";
+const determineWinner = (player, computer) => {
+    if (player === computer) return "tie";
     if (
-        playerChoice === "rock" && computerChoice === "paper" || 
-        playerChoice === "paper" && computerChoice === "scissors" || 
-        playerChoice === "scissors" && computerChoice === "rock"
-    ) return "Computer Wins!";
-    return "You Win!;"
+        player === "rock" && computer === "paper" || 
+        player === "paper" && computer === "scissors" || 
+        player === "scissors" && computer === "rock"
+    ) return "computer";
+    return "player";
 }
 
 const buildActionMessage = (winner, playerChoice, computerChoice) => {
