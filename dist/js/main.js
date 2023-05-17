@@ -144,13 +144,13 @@ const getComputerChoice = () => {
 }
 
 const determineWinner = (playerChoice, computerChoice) => {
-    if (playerChoice === computerChoice) return "Tie Game.";
+    if (playerChoice === computerChoice) return "tie";
     if (
         playerChoice === "rock" && computerChoice === "paper" || 
         playerChoice === "paper" && computerChoice === "scissors" || 
         playerChoice === "scissors" && computerChoice === "rock"
     ) return "Computer Wins!";
-    return "Player One Wins!;"
+    return "You Win!;"
 }
 
 const buildActionMessage = (winner, playerChoice, computerChoice) => {
