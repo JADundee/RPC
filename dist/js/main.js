@@ -133,7 +133,7 @@ const finishGameFlow = (playerChoice) => {
     updateScoreState(winner);
     updatePersistenData(winner);
     updateScoreboard();
-    // Update winner message
+    updateWinnerMessage(winner);
     // Display computer choice
 }
 
@@ -197,6 +197,16 @@ const updatePersistenData = (winner) => {
     const store = winner === "computer" ? "cpAllTime" : "p1AllTime";
     const score = winner === "computer" ? Game.getCpAllTime() : Game.getP1AllTime();
     localStorage.setItem(store, score);
+}
+
+const updateWinnerMessage = (winner) => {
+    if (winner === "tie") return;
+    const message = 
+    winner === "computer"
+        ? "Computer Wins!"
+        : "You Win!"
+        const p1Message = document.getElementById("p1Message");
+        p1Message.textContent = message
 }
 
 const askUserToPlayAgain = () => {
