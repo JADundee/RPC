@@ -132,7 +132,7 @@ const finishGameFlow = (playerChoice) => {
     updateAriaResult(actionMessage, winner);
     updateScoreState(winner);
     updatePersistenData(winner);
-    // Update score board
+    updateScoreboard();
     // Update winner message
     // Display computer choice
 }
