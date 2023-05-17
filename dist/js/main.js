@@ -27,11 +27,11 @@ const updateScoreboard = () => {
     cpAllTimeScore.textContent = Game.getCpAllTime();
     cpAllTimeScore.ariaLabel = `The computer has ${Game.getCpAllTime()} all time wins.`;
 
-    const p1SessionScore = document.getElementById("cp_all_time_score");
+    const p1SessionScore = document.getElementById("p1_session_score");
     p1SessionScore.textContent = Game.getP1Session();
     p1SessionScore.ariaLabel = `Player One has ${Game.getP1Session()} wins this session.`;
 
-    const cpSessionScore = document.getElementById("cp_all_time_score");
+    const cpSessionScore = document.getElementById("cp_session_score");
     cpSessionScore.textContent = Game.getCpSession();
     cpSessionScore.ariaLabel = `The computer has ${Game.getCpSession()} wins this session.`;
 }
