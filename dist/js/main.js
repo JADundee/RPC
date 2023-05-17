@@ -13,6 +13,7 @@ const initApp = () => {
     // listen for play again choice
     listenForPlayAgain();
     // lock in gameboard height
+    lockComputerGameBoardHeight();
     // set focus to start new game
 }
 
@@ -73,7 +74,14 @@ const listenForPlayAgain = () => {
     document.querySelector("form").addEventListener("submit", (e) => {
         e.preventDefault();
         resetBoard(); //TODO:
-    })
+    });
+}
+
+const lockComputerGameBoardHeight = () => {
+    const cpGameBoard = document.querySelector(".computerBoard .gameBoard");
+    const cpGameBoardStyles = getComputedStyle(cpGameBoard);
+    const height = cpGameBoardStyles.getPropertyValue("height");
+    cpGameBoard.style.minHeight = height;
 }
 
 const updateP1Message = (choice) => {
