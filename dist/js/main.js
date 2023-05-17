@@ -2,19 +2,13 @@ import GameObj from "./Game.js";
 const Game = new GameObj();
 
 const initApp = () => {
-    // all time data
     initAllTimeData();
-    // update scoreboard
     updateScoreboard();
-    // listen for player choice
     listenForPlayerChoice();
-    // listen for enter key
     listenForEnterKey();
-    // listen for play again choice
     listenForPlayAgain();
-    // lock in gameboard height
     lockComputerGameBoardHeight();
-    // set focus to start new game
+    document.querySelector("h1").focus();
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
