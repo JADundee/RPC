@@ -134,7 +134,7 @@ const finishGameFlow = (playerChoice) => {
     updatePersistenData(winner);
     updateScoreboard();
     updateWinnerMessage(winner);
-    // Display computer choice
+    displayComputerChoice(computerChoice);
 }
 
 const getComputerChoice = () => {
@@ -207,6 +207,11 @@ const updateWinnerMessage = (winner) => {
         : "You Win!"
         const p1Message = document.getElementById("p1Message");
         p1Message.textContent = message
+}
+
+const displayComputerChoice = (computerChoice) => {
+    const square = document.getElementById("cp_paper");
+    createGameImage(computerChoice, square);
 }
 
 const askUserToPlayAgain = () => {
