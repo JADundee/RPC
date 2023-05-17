@@ -51,7 +51,7 @@ const listenForPlayerChoice = () => {
                     img.parentElement.classList.add("not-selected");
                 }
             });
-            // animation
+            computerAnimationSequence(playerChoice);
         })
     })
 }
@@ -82,4 +82,18 @@ const updateP1Message = (choice) => {
     let p1Message = document.getElementById("p1Message").textContent;
     p1Message += ` ${choice[0].toUpperCase()}${choice.slice(1)}!`;
     document.getElementById("p1Message").textContent = p1Message;
+}
+
+const computerAnimationSequence = (playerChoice) => {
+    let interval = 1000;
+    setTimeout(() => computerChoiceAnimation("cp_rock", 1), interval);
+    setTimeout(() => computerChoiceAnimation("cp_paper", 2), interval += 500);
+}
+
+const computerChoiceAnimation = (elementId, number) => {
+    const element = document.getElementById(elementId);
+    element.firstElementChild.remove();
+    const p =document.createElement("p");
+    p.textContent = number;
+    element.appendChild(p);
 }
