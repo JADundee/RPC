@@ -67,7 +67,7 @@ const listenForEnterKey = () => {
 const listenForPlayAgain = () => {
     document.querySelector("form").addEventListener("submit", (e) => {
         e.preventDefault();
-        resetBoard(); //TODO:
+        resetBoard(); 
     });
 }
 
@@ -124,4 +124,32 @@ const askUserToPlayAgain = () => {
     const playAgain = document.getElementById("playAgain");
     playAgain.classList.toggle("hidden");
     playAgain.focus();
+}
+
+const resetBoard = () => {
+    const gameSquares = document.querySelectorAll(".gameBoard div");
+    gameSquares.forEach(el => {
+        el.className = "gameBoard__square";
+    });
+    const cpSquares = document.querySelectorAll(".computerBoard .gameBoard__square");
+    cpSquares.forEach(el => {
+        if (el.firstElementChild) el.firstElementChild.remove();
+        if (el.id === "cp_rock") createGameImage("rock", el);
+        if (el.id === "cp_paper") createGameImage("paper", el);
+        if (el.id === "cp_scissors") createGameImage("scissors", el);
+    });
+    document.getElementById("p1Message").textContent = "Player One Chooses...";
+    document.getElementById("cpMessage").textContent = "Computer Chooses...";
+    const ariaResult = document.getElementById("playAgain");
+    ariaResult.ariaLabel = "Player One Chooses";
+    document.getElementById("p1Message").focus();
+    document.getElementById("playAgain").classList.toggle("hidden");
+    Game.endGame();
+}
+
+const createGameImage = (icon, appendToElement) => {
+    const image = document.createElement("img");
+    image.src = `img/${icon}.png`;
+    image.alt = icon;
+    appendToElement.appendChild(image);
 }
